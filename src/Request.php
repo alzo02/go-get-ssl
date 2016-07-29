@@ -6,7 +6,7 @@ namespace GoGetSSL;
  * Class Request
  * @package GoGetSSL
  *
- * @author Andrzej Tracz
+ * @author alzo02 <alzo02@icloud.com>
  */
 trait Request
 {

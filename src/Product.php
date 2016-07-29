@@ -2,6 +2,12 @@
 
 namespace GoGetSSL;
 
+/**
+ * Class Product
+ *
+ * @package GoGetSSL
+ * @author alzo02 <alzo02@icloud.com>
+ */
 class Product
 {
     /**

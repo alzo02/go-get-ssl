@@ -4,9 +4,8 @@ namespace GoGetSSL;
 
 /**
  * Go Get SSL Rest API Wrapper
- *
- * @author Andrzej Tracz
  * @package GoGetSSL
+ * @author alzo02 <alzo02@icloud.com>
  */
 class Api
 {
