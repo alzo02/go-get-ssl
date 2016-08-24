@@ -2,3 +2,7 @@
 vendor
 samples/
 composer.lock
+.pass
+*.log
+config.php
+*.tmp

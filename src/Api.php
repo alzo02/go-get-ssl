@@ -2,6 +2,10 @@
 
 namespace GoGetSSL;
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Formatter\LineFormatter;
+
 /**
  * Go Get SSL Rest API Wrapper
  * @package GoGetSSL
@@ -16,6 +20,8 @@ class Api
      */
     const LIVE_URL = "https://gogetssl.com/api";
     const SANDBOX_URL = "https://sandbox.gogetssl.com/api";
+
+    public $log;
 
     /**
      * Create API context, default sandbox mode is enabled.
@@ -32,6 +38,12 @@ class Api
             $url = self::LIVE_URL;
         }
 
+        $name = $mode == 'live' ? "API_PROD" : "API_DEV";
+        $this->log = new Logger($name);
+        $handler = new StreamHandler(__DIR__ . '/../log/api.log', Logger::INFO);
+        $handler->setFormatter(new LineFormatter(null, null, true, true));
+
+        $this->log->pushHandler($handler);
         $this->init($username, $password, $url);
     }
 }

@@ -43,7 +43,12 @@ trait Request
     private $url;
 
     /**
-     * Request constructor.
+     * @var \Closure[]
+     */
+    private $onResponseCallbacks = array();
+
+    /**
+     * Request init.
      *
      * @param $url
      * @param $username
@@ -59,6 +64,14 @@ trait Request
         if (strlen($this->apiKey) == 0) {
             throw new \Exception("GoGetSSL Api Key is not set. Response: {$this->response}");
         }
+    }
+
+    /**
+     * @param \Closure $callback
+     */
+    public function onResponse(\Closure $callback)
+    {
+        $this->onResponseCallbacks[] = $callback;
     }
 
     /**
@@ -162,7 +175,15 @@ trait Request
 
         $this->response = $response;
 
-        return $this->handleResponse();
+        $response = $this->handleResponse();
+
+        foreach ($this->onResponseCallbacks as $callback) {
+            if ($callback instanceof \Closure) {
+                $callback->__invoke($response);
+            }
+        }
+
+        return $response;
     }
 
     /**

@@ -13,7 +13,7 @@ class Product
     /**
      * @var Api
      */
-    private $api;
+    protected $api;
 
     /**
      * Product constructor.
