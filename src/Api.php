@@ -18,7 +18,7 @@ class Api
     /**
      * Base URLs of API
      */
-    const LIVE_URL = "https://gogetssl.com/api";
+    const LIVE_URL = "https://my.gogetssl.com/api";
     const SANDBOX_URL = "https://sandbox.gogetssl.com/api";
 
     public $log;
