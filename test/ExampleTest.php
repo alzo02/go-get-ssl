@@ -11,6 +11,7 @@ class ExampleTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->credentials();
         $api = new \GoGetSSL\Api($data['user'], $data['pass']);
+        $api->setLogPath(__DIR__ . "/../log/api.log")->enableLog();
 
         $productsApi  = new \GoGetSSL\Product($api);
         $products = $productsApi->getAll();

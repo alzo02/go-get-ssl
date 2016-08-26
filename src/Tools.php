@@ -26,4 +26,28 @@ class Tools
     {
         return $this->api->get("/tools/webservers/{$supplier_id}");
     }
+
+    /**
+     * @param $domain - valid FQDN
+     *
+     * @return array of valid email addresses from Comodo API
+     */
+    public function getDomainEmails($domain)
+    {
+        return $this->api->post("/tools/domain/emails/", [
+            'domain' => $domain
+        ]);
+    }
+
+    /**
+     * @param $domain - valid FQDN
+     *
+     * @return array of valid email addresses from Comodo API
+     */
+    public function getDomainEmailsForGeotrust($domain)
+    {
+        return $this->api->post("/tools/domain/emails/geotrust/", [
+            'domain' => $domain
+        ]);
+    }
 }
