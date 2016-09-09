@@ -12,7 +12,7 @@ class Order
 {
     const STATUS_ACTIVE             = 'active';
     const STATUS_PENDING            = 'pending';
-    const STATUS_CANCELED           = 'canceled';
+    const STATUS_CANCELED           = 'cancelled';
     const STATUS_REJECTED           = 'rejected';
     const STATUS_PAYMENT_NEEDED     = 'payment needed';
     const STATUS_PROCESSING         = 'processing';
